@@ -1,0 +1,17 @@
+@import url("./assets/CSS/font.css");
+/* @import url("./assets/icon/"); */
+
+.container {
+  width: 1200px;
+  /* border: red solid 1px; */
+  margin: 0 auto;
+}
+header {
+  border-top: #f3f5f5 solid 1px;
+  border-bottom: #f3f5f5 solid 1px;
+}
+
+header img {
+  height: 40px;
+  padding: 7px;
+}
