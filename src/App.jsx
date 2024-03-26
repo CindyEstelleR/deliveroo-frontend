@@ -7,37 +7,99 @@ import logo from "./assets/img/images/logo-teal.svg";
 
 function App() {
   const [data, setData] = useState({});
-  // le state isLoading permet de savoir si la réponse du serveur est arrivé
   const [isLoading, setIsLoading] = useState(true);
+  const [content, setContent] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://site--deliveroo-back--ztxyvw6t2bht.code.run"
-        );
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
+      // try {
+      const response = await axios.get(
+        "https://site--deliveroo-back--ztxyvw6t2bht.code.run"
+      );
+      setData(response.data);
+      setIsLoading(false);
     };
+    // catch (error) {
+    //   console.log(error);
+    // }
+    // };
 
     fetchData();
   }, []);
 
-  return (
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
     <>
-      <header className="container">
-        <img src={logo} />
+      <header>
+        <div className="container">
+          <img src={logo} alt="deliveroo logo" />
+        </div>
       </header>
-      {isLoading === true ? (
-        <p>Chargement</p>
-      ) : (
-        <main>
-          <h1>{data.restaurant.name}</h1>
-        </main>
-      )}
+      <section>
+        <div className="container hero-container">
+          <div>
+            <h1>{data.restaurant.name}</h1>
+            <p>{data.restaurant.description}</p>
+          </div>
+          <img className="miam" src={data.restaurant.picture} alt="miam" />
+        </div>
+      </section>
+      <main>
+        <div className="container main-container">
+          <section className="col-left">
+            {data.categories.map((category) => {
+              if (category.meals.length !== 0) {
+                return (
+                  <div key={category.name}>
+                    <h2>{category.name}</h2>
+                    <div className="articles-container">
+                      {category.meals.map((meal) => {
+                        return (
+                          <article key={meal.id}>
+                            <div>
+                              <h3>{meal.title}</h3>
+                              <p className="description">{meal.description}</p>
+                              <span>{meal.price}</span>
+                              {meal.popular && <span>Populaire</span>}
+                            </div>
+
+                            {meal.picture && (
+                              <img src={meal.picture} alt={meal.title} />
+                            )}
+                          </article>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              } else {
+                return null;
+              }
+            })}
+          </section>
+          <section className="col-right">
+            {data.categories.meals.map((meal) => {
+              return (
+                <div
+                  key={meal.id}
+                  onClick={() => {
+                    console.log(data.meal);
+                    <div>
+                      <h4>Valider mon panier</h4>
+                      <div>{data.categories.meals.title}</div>
+                    </div>;
+                  }}
+                ></div>
+              );
+              // <div>
+              //   <h4>Valider mon panier</h4>
+              //   <p>Votre panier est vide</p>
+              // </div>
+            })}
+          </section>
+        </div>
+      </main>
     </>
   );
 }

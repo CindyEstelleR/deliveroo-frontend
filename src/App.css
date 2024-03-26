@@ -1,17 +1,141 @@
 @import url("./assets/CSS/font.css");
 /* @import url("./assets/icon/"); */
 
-.container {
-  width: 1200px;
-  /* border: red solid 1px; */
-  margin: 0 auto;
+* {
+  box-sizing: border-box;
 }
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 header {
-  border-top: #f3f5f5 solid 1px;
-  border-bottom: #f3f5f5 solid 1px;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: solid #ebe8e8 1px;
 }
 
 header img {
-  height: 40px;
-  padding: 7px;
+  height: 42px;
+  /* margin-bottom: 10px; */
+}
+
+.container {
+  /* background-color: blue; */
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* section img {
+  height: 100px;
+} */
+
+.hero-container {
+  display: flex;
+  padding: 20px 0;
+}
+
+.miam {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.hero-container p {
+  color: #868a8a;
+  font-size: 21px;
+  line-height: 30px;
+  padding-right: 50px;
+}
+
+main {
+  background-color: #f3f5f5;
+  padding-top: 20px;
+}
+
+/* main img {
+  height: 100px;
+} */
+
+.main-container {
+  display: flex;
+}
+
+.col-left {
+  /* background-color: red; */
+  width: 68%;
+}
+
+.col-right {
+  margin-top: 30px;
+  height: 200px;
+  border-radius: 5px;
+  background-color: white;
+  width: 32%;
+  margin-left: 35px;
+  text-align: center;
+}
+
+article {
+  background-color: white;
+  width: 48%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  height: 170px;
+}
+
+.articles-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: red; */
+  justify-content: space-between;
+  /* justify-content: flex-end; */
+}
+
+article img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+article .description {
+  /* border: solid black 1px; */
+  height: 34px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.col-right h4 {
+  background-color: #bac3c3;
+  height: 50px;
+  color: #909e9e;
+  margin: 15px;
+  padding: 15px;
+  /* border: red solid 1px; */
+  border-radius: 5px;
+}
+
+.col-right p {
+  color: #a7aaaa;
+  padding: 50px;
 }
